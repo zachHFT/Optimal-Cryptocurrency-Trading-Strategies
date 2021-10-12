@@ -3,9 +3,13 @@
 
 ## Team members
 zachHFT
+
 yacinetrad
+
 coolsocket
+
 KC0710
+
 1 member missing
 
 ## Introdcution
