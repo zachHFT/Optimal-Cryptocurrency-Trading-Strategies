@@ -1,4 +1,7 @@
 # Optimal-Cryptocurrency-Trading-Strategies
+
+## Introdcution
+
 Statistical Data Analysis of Optimal Trading Strategies (Buy-and-Sell) for Cryptocurrencies
 
 The goal of this project is to proceed to the analysis of an optimal trading (buy-and-sell) strategy for the market of Cryptocurrencies. We expect such a strategy, if sucessful, also applicable to the case of traditionnal stock markets.
