@@ -10,8 +10,7 @@ We choose Binance because it is one, if not the only exchange, with a properly w
 
 ## Data Extraction
 
-To extract the Data, kindly refer to : https://github.com/zachHFT/Get_OHLC_Data/blob/main/Get_OHLC_from_Binance_API/get_data.py
-Do not forget to add the "def main():" as well as "if main == __name__ :" at the end of the file.
+To extract the Data, you can do so as per the call of get_uptodate_binance_data.update_data_for_basepair(base_pair='USDT', nb_symbols_limit=5, bin_size='1d') in get_ohlc_historical_data.ipynb
 
 ## Data Cleaning
 
