@@ -1,5 +1,13 @@
 # Optimal-Cryptocurrency-Trading-Strategies
 
+
+## Team members
+zachHFT
+yacinetrad
+coolsocket
+KC0710
+1 member missing
+
 ## Introdcution
 
 Statistical Data Analysis of Optimal Trading Strategies (Buy-and-Sell) for Cryptocurrencies
