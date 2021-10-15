@@ -12,7 +12,7 @@ KC0710
 
 1 member missing
 
-## Introdcution
+## Introduction
 
 Statistical Data Analysis of Optimal Trading Strategies (Buy-and-Sell) for Cryptocurrencies
 
