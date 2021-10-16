@@ -30,6 +30,8 @@ We choose Binance because it is one, if not the only exchange, with a properly w
 
 - The code in get_uptodate_binance_data.py contains a global variable 'main_directory' which has the name of my project folder I am working on. I recommend you call your project folders with the same name.
 
+- If you don't want to get your hands dirty (which is understandable) navigating through the code to download the data, simply download a set of the date at this link: https://drive.switch.ch/index.php/s/URDxQbEv8LqSkB2
+
 ## Data Cleaning
 
 - We use the clean_csv() function to clean the newly doownloaded data file. In particular, we setup timestamp in datetime format, to allow us to have an easier handling of the data later on.
