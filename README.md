@@ -26,6 +26,10 @@ We choose Binance because it is one, if not the only exchange, with a properly w
 
 - To extract the Data, you can do so as per the call of get_uptodate_binance_data.update_data_for_basepair(base_pair='USDT', nb_symbols_limit=5, bin_size='1d') in get_ohlc_historical_data.ipynb
 
+- The data will be saved in a folder named 'Binance_OHLC' located within a 'Data' folder within your project folder. If you do not have such folders, create some. (If you are familiar with chdir python function to change and work with your choice directory you can ignore this remark).
+
+- The code in get_uptodate_binance_data.py contains a global variable 'main_directory' which has the name of my project folder I am working on. I recommend you call your project folders with the same name.
+
 ## Data Cleaning
 
 - We use the clean_csv() function to clean the newly doownloaded data file. In particular, we setup timestamp in datetime format, to allow us to have an easier handling of the data later on.
