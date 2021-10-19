@@ -22,6 +22,8 @@ Statistical Data Analysis of Optimal Trading Strategies (Buy-and-Sell) for Crypt
 - The first part of the project will consist in showing you how to access the data of all historical data available on Binance.
 We choose Binance because it is one, if not the only exchange, with a properly working API which also have historical data up to 2017 and for the widest range of cryptocurrency pairs, and therefore the most diverse range of applicable trading strategy (arbitrage, sentiment-driven prices, trends, market making, etc).
 
+- The second part will explain the entire process behind our analysis
+
 ## Data Extraction
 
 - To extract the Data, you can do so as per the call of get_uptodate_binance_data.update_data_for_basepair(base_pair='USDT', nb_symbols_limit=5, bin_size='1d') in get_ohlc_historical_data.ipynb
