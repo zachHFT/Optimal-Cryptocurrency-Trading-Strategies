@@ -55,6 +55,8 @@ You can find the code in the get_uptodate_binance_data.py file
 
 ## Data Enrichment & Feature Engineering
 
+- To make our statistical evaluations, we will use the log-returns. The reason is that the price of a currency is not what is of interest to us but rather it's evolution. By studying prices we would be confronted with values that don't have an intrinsic meaning, However with log returns we will have an idea of the evolution in percentages, which is way more useful. To sum it up, we are interested in predicting the price evolution of a crypto-currency not simply its price. 
+
 ## Feature Selection
 
 ## Predictive models
