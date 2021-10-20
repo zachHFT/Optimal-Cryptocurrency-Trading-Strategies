@@ -49,7 +49,7 @@ You can find the code in the get_uptodate_binance_data.py file
 
 ## Multiple Datasets Analysis
 
-- Once an analysis is performed on a dedicated dataset (e.g. 1 hour BTC-USDT historical data), the same statistical analysis can be performed over any dataset (e.g. 1 minute ETH - CHF historical data), since the data structure (i.e. the columns, open, high, low, close).
+- Once an analysis is performed on a dedicated dataset (e.g. 1 hour BTC-USDT historical data), the same statistical analysis can be performed over any dataset (e.g. 1 minute ETH - CHF historical data), since the data structure (i.e. the columns, open, high, low, close) is the same.
 
 - We downloaded the data for hundreds of cryptocurrency pairs over various timeframe (1 day, 1 hour,  1 minute, etc) so that we can perform meta-analysis and/or repeat the small single-pair dataset analysis over all other sets
 
