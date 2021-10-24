@@ -146,7 +146,33 @@ bodyfont=\fontfamily{cmss}\selectfont\itshape,
 \subsection{}
 \subsection{}
 \subsection{}
-\subsection{}
+\subsection{Analysis of extremes}
+
+In financially focused domains, the question of extreme values is indubitably an important one. For example: stock market crashes, interest rates  insurance pricing based on life expectancy are all fields in which it would be necessary to consider the very unlikely, atypical events. The analysis of cryptocurrency trajectories is no different, indeed, it would certainly be of interest to a trader to be aware at what rate the cryptocurrency market experiences sudden but large deviations from its present state. Recently, in fact, in March of $2020$, Bitcoin crashed. In the midst of the COVID-19 outbreak, the price of Bitcoin fell dramatically, see Figure \ref{fig:logreturn_17_21} for a visualisation.
+
+ \begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{Extremal Modelling/logreturn_17_21.png}
+    \caption{The daily log return of Bitcoin process from August 2017 to August 2021. Notice the very large drop in March of 2020.}
+    \label{fig:logreturn_17_21}
+\end{figure}
+
+In light of this, it is not unnatural to ask the corresponding statistical question in the context of extremes. In Figure \ref{fig:hist_logreturn_17_21}, we can see that the distribution of log returns for our data set admits very heavy tails. Admittedly, one is aware of the very large anomaly which greatly negatively skews the data in a noticeable fashion. However, in spite of this, using a common statistical rule for eliminating outliers based upon the quartiles of a distribution, we find, as in Figure \ref{fig:distplots_sans_outliers}, the data still exhibits this skewed behaviour. This sparks interest in using extreme value theory to aid our understanding of it. \begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{Extremal Modelling/hist_logreturn_17_21.png}
+    \caption{Distribution of log returns using data from August 2017 to August 2021. The distribution shows some quite heavy tails.}
+    \label{fig:hist_logreturn_17_21}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{Extremal Modelling/distplots_sans_outliers.png}
+    \caption{Distribution of log returns having eliminated outliers and a QQ plot of the data against a standard normal random variable. Clearly the data is still heavily tailed.}
+    \label{fig:distplots_sans_outliers}
+\end{figure}
+
+
+
 
 
 
