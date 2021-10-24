@@ -4,6 +4,7 @@ library(ggplot2)
 library(data.table)
 library(evd)
 
+
 btc.usd <- read.csv("BTCUSDT-1d-binance.csv")
 btc.usd$timestamp <- as.Date(btc.usd$timestamp) #change timestamp to date format
 btc.usd <- btc.usd %>% 
@@ -25,6 +26,3 @@ btc.usd %>% filter(year %in%  c("2018", "2019", "2020")) %>%
        y = "log return",
        x = "Day") + 
   theme_bw(base_size = 10)
-
-
-  
