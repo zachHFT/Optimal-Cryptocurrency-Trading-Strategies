@@ -124,6 +124,8 @@ bodyfont=\fontfamily{cmss}\selectfont\itshape,
 \newcommand{\lap}{\nabla^2}
 \newcommand{\dif}[1]{\text{d}#1}
 
+\newcommand{\code}{\texttt}
+
 \definecolor{fcolor}{RGB}{0,255,255}
 
 
@@ -141,14 +143,14 @@ bodyfont=\fontfamily{cmss}\selectfont\itshape,
 
 
 \chapter{What factors impact your ability to make money on crypto markets?} 
-\section{Some analysis}
+\section{Some analysis - introduction}
 
 \subsection{}
 \subsection{}
 \subsection{}
 \subsection{Analysis of extremes}
 
-In financially focused domains, the question of extreme values is indubitably an important one. For example: stock market crashes, interest rates  insurance pricing based on life expectancy are all fields in which it would be necessary to consider the very unlikely, atypical events. The analysis of cryptocurrency trajectories is no different, indeed, it would certainly be of interest to a trader to be aware at what rate the cryptocurrency market experiences sudden but large deviations from its present state. Recently, in fact, in March of $2020$, Bitcoin crashed. In the midst of the COVID-19 outbreak, the price of Bitcoin fell dramatically, see Figure \ref{fig:logreturn_17_21} for a visualisation.
+In financially related fields, the question of extreme values is indubitably an important one. For example: stock market crashes, interest rates  insurance pricing based on life expectancy are all fields in which it would be necessary to consider the very unlikely, atypical events. The analysis of cryptocurrency trajectories is no different, indeed, it would certainly be of interest to a trader to be aware at what rate the cryptocurrency market experiences sudden but large deviations from its present state. Recently, in fact, in March of $2020$, Bitcoin crashed. In the midst of the COVID-19 outbreak, the price of Bitcoin fell dramatically, see Figure \ref{fig:logreturn_17_21} for a visualisation.
 
  \begin{figure}
     \centering
@@ -157,9 +159,25 @@ In financially focused domains, the question of extreme values is indubitably an
     \label{fig:logreturn_17_21}
 \end{figure}
 
-In light of this, it is not unnatural to ask the corresponding statistical question in the context of extremes. In Figure \ref{fig:hist_logreturn_17_21}, we can see that the distribution of log returns for our data set admits very heavy tails. Admittedly, one is aware of the very large anomaly which greatly negatively skews the data in a noticeable fashion. However, in spite of this, using a common statistical rule for eliminating outliers based upon the quartiles of a distribution, we find, as in Figure \ref{fig:distplots_sans_outliers}, the data still exhibits this skewed behaviour. This sparks interest in using extreme value theory to aid our understanding of it. \begin{figure}
+In light of this, it is not unnatural to ask the corresponding statistical question in the context of extremes. In Figure \ref{fig:hist_logreturn_17_21}, we can see that the distribution of log returns for our data set admits very heavy tails. Admittedly, one is aware of the very large anomaly which greatly negatively skews the data in a noticeable fashion. However, in spite of this, using a common statistical rule for eliminating outliers based upon the quartiles of a distribution, we find, as in Figure \ref{fig:distplots_sans_outliers}, the data still exhibits this skewed behaviour. This sparks interest in using extreme value theory to aid our understanding of it.\\
+
+Let $(X_i)_{i=1}^n$ be a random sample from some distribution $F$, and $M_n = \max(X_1, \ldots, X_n)$ be the $n$th order statistic. If there exist sequences $(a_n) \subset \mathbb{R}^+$ and $(b_n) \subset \mathbb{R}$ such that $(M_n - b_n)/a_n \overset{D}{\to} G$, for some distribution $G$, then $G$ must be of extremal value type, that is, \[
+G(x; \eta, \tau, \xi) = \begin{cases}
+\exp\left[-\left\{1+\xi(x-\eta)/\tau\right\}_+\right], & \xi \ne 0\\
+\exp\left[-\exp\left\{-(x-\eta)/\tau\right\}\right], & \xi = 0
+\end{cases}
+\]
+where $\eta, \tau$ and $\xi$ are location, shape and scale parameters respectively. \begin{remark}
+Extreme value theory does not apply singly to maxima, if $M_n' = \min(X_1, \ldots, X_n)$, then we have that $M_n' = -\max(-X_1, \ldots, -X_n)$ and so the corresponding limiting distribution function is $1-G(-x)$. 
+\end{remark}
+
+Studying maxima in this way is known as the \textbf{block maxima approach}, since one groups data and considers fitting the distribution to the maxima across all groups, for example: annual global extreme temperatures. There is another approach, called \textbf{peaks over thresholds}, which studies the exceedance of a random sample beyond a predefined threshold. This will be discussed later.
+
+
+The goal now, therefore, is to fit this model to our data, i.e. by finding the unknown parameters. To this end, we use the $\code{R}$ package $\code{evd}$ which gives useful functions for extremal modelling and makes plotting diagnostics straightforward. The function $\code{fgev}$ fits the block maxima (or minima when appropriately transformed) to the model through maximum likelihood estimation. Assuming certain regularity conditions, we can derive estimates and corresponding uncertainties from our method.  
+\begin{figure}
     \centering
-    \includegraphics[width=\linewidth]{Extremal Modelling/hist_logreturn_17_21.png}
+    \includegraphics[width=\linewidth, height=3.5in]{Extremal Modelling/hist_logreturn_17_21.png}
     \caption{Distribution of log returns using data from August 2017 to August 2021. The distribution shows some quite heavy tails.}
     \label{fig:hist_logreturn_17_21}
 \end{figure}
@@ -170,6 +188,8 @@ In light of this, it is not unnatural to ask the corresponding statistical quest
     \caption{Distribution of log returns having eliminated outliers and a QQ plot of the data against a standard normal random variable. Clearly the data is still heavily tailed.}
     \label{fig:distplots_sans_outliers}
 \end{figure}
+
+
 
 
 
