@@ -1,16 +1,9 @@
 # Optimal-Cryptocurrency-Trading-Strategies
 
 
-## Team members
-zachHFT
+## Team
 
-yacinetrad
-
-coolsocket
-
-KC0710
-
-1 member missing
+zachHFT, yacinetrad, coolsocket, KC0710
 
 ## Introduction
 
