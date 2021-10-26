@@ -145,7 +145,23 @@ bodyfont=\fontfamily{cmss}\selectfont\itshape,
 \chapter{Discovery and Assessment of optimal cryptocurrency trading strategies} 
 \section{Some analysis - introduction}
 
-\subsection{}
+\subsection{Key concepts when dealing with cryptocurrencies}
+
+The goal of this project is to proceed to the analysis of an optimal trading (buy-and-sell) strategy for the market of Cryptocurrencies. Our analysis will be made on cryptocurrency pairs.\\
+These pairs allow us to compare costs between different cryptocurrencies. They are helpful for illustrating the relative worth of coins. For example,the question how much Bitcoin (BTC) equals in Ethereum (ETH) will be answered by the value of the pair BTC/ETH.
+In this report we are dealing with the BTC/USDT pair. USDT stands for Tether which is a stable coin in which each token is backed by a U.S Dollar.\\
+The price of a token depends on the market cap of the currency and how many tokens are issued. And since there are hundreds of cryptocurrencies dealing with their prices can become very cumbersome and lack clarity. For that very reason, we have chosen to deal in our analysis with log-returns.
+Indeed, the price of a currency is not what is of interest to us but rather it's evolution. By studying prices we would be confronted with values that don't have an intrinsic meaning, However with log returns we will have an idea of the evolution in percentages, which is way more useful. To sum it up, this allows measuring a lot of variables in a comparable metric, thus enabling evaluation of analytic relationships amongst two or more variables despite originating from price series of unequal values. \\
+Concretely, if we are doing our study on a currency at time $i$ which is valued at price $p_i$. The log-return for the period $t$ is:
+$$\log(\frac{p_i}{p_{i-t}})$$
+ An interesting observation one can make when plotting the log-returns is that they are supposed to be normally distributed, however when looking at Figure 1.2 we can see that the mean is slightly tilted to the positive side which indicates that BTC has been a good investment overall.
+
+
+
+
+
+
+
 \subsection{}
 \subsection{}
 \subsection{Analysis of extremes}
