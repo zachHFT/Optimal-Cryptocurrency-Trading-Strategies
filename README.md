@@ -15,6 +15,8 @@ Statistical Data Analysis of Optimal Trading Strategies (Buy-and-Sell) for Crypt
 - The first part of the project will consist in showing you how to access the data of all historical data available on Binance.
 We choose Binance because it is one, if not the only exchange, with a properly working API which also have historical data up to 2017 and for the widest range of cryptocurrency pairs, and therefore the most diverse range of applicable trading strategy (arbitrage, sentiment-driven prices, trends, market making, etc).
 
+- If you don't want to get your hands dirty (which is understandable) navigating through the code to download the data, simply download a set of the date at this link: https://drive.switch.ch/index.php/s/URDxQbEv8LqSkB2
+
 - The second part will explain the entire process behind our analysis
 
 ## Data Extraction
@@ -24,8 +26,6 @@ We choose Binance because it is one, if not the only exchange, with a properly w
 - The data will be saved in a folder named 'Binance_OHLC' located within a 'Data' folder within your project folder. If you do not have such folders, create some. (If you are familiar with chdir python function to change and work with your choice directory you can ignore this remark).
 
 - The code in get_uptodate_binance_data.py contains a global variable 'main_directory' which has the name of my project folder I am working on. I recommend you call your project folders with the same name.
-
-- If you don't want to get your hands dirty (which is understandable) navigating through the code to download the data, simply download a set of the date at this link: https://drive.switch.ch/index.php/s/URDxQbEv8LqSkB2
 
 ## Data Cleaning
 
