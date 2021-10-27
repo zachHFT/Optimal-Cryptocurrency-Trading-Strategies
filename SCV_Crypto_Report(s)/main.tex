@@ -160,11 +160,11 @@ If you don't want to get your hands dirty (which is understandable) navigating t
 \section{Data Extraction}
 
 \begin{itemize}
-\item{To extract the Data, you can do so as per the call of getuptodate\_binance\_data.update\_data\_for\_basepair(base\_pair=\'USDT\', nb\_symbols\_limit=5, bin\_size=\'1d\') in get\_ohlc\_historical\_data.ipynb}
+\item{To extract the data, you can do so as per the call of \begin{center}\code{getuptodate\_binance\_data.update\_data\_for\_basepair(base\_pair=\'USDT\', nb\_symbols\_limit=5, bin\_size=\'1d\')}\end{center} in \code{get\_ohlc\_historical\_data.ipynb}}.
 
-\item{The data will be saved in a folder named Binance\_OHLC\textquotesingle located within a 'Data' folder within your project folder. If you do not have such folders, create some. (If you are familiar with \'chdir\' python function to change and work with your choice directory you can ignore this remark).}
+\item{The data will be saved in a folder named \code{Binance\_OHLC} located within a 'Data' folder within your project folder. If you do not have such folders, create some. (If you are familiar with \code{chdir} python function to change and work with your choice directory you can ignore this remark).}
 
-\item{The code in get\_uptodate\_binance\_data.py contains a global variable 'main_directory' which has the name of my project folder I am working on. I recommend you call your project folders with the same name.}
+\item{The code in \code{get\_uptodate\_binance\_data.py} contains a global variable \code{main\_directory} which has the name of my project folder I am working on. I recommend you call your project folders with the same name.}
 \end{itemize}
 
 
@@ -172,15 +172,15 @@ If you don't want to get your hands dirty (which is understandable) navigating t
 
 \begin{itemize}
     \item 
-We use the clean\_csv() function to clean the newly doownloaded data file. In particular, we setup timestamp in datetime format, to allow us to have an easier handling of the data later on.
+We use the \code{clean\_csv} function to clean the newly downloaded data file. In particular, we setup timestamp in datetime format, to allow us to have an easier handling of the data later on.
     \item
-We also select a subset of the columns of interest to us. In particular we keep keep the following columns: ['timestamp', 'open', 'high', 'low', 'close', 'volume', 'time_diff_in_days', 'time_diff_in_min'].
+We also select a subset of the columns of interest to us. In particular we keep keep the following columns: ['timestamp', 'open', 'high', 'low', 'close', 'volume', 'time\_diff\_in\_days', 'time\_diff\_in\_min'].
     \item
 Note that we have never encountered any NA values or other seemingly out-of-place values that would need to be rejected. Indeed, so called 'out-of-place values' or any other outliers kind of value are strong indicators which require further investigations and may be relevant to dedicated algorithmic trading strategies. We absolutely do not want to remove them as we may be tempted to do in some other contexts in data science.
     \item
-Discrepencies in the timestamp of our data : Missing time periods. Every once in a while there is a major crash in cryptocurrencies market (i.e. prices dropping significantly). This leads to a massive amount of people trying to connect to the cryptocurrencies exchange platforms to try to sell (or buy) some cryptocurrencies.This often results in the exchange becoming unavailable, their server not being able to handle so many connections attempts at once. This explains the missing data in historical cryptocurrencies prices data (It can be for a couple of minutes up to a couple of hours). We therefore compute 'time_diff_in_days' and 'time_diff_in_min' to spot any such discrepancies in the timestamp.
+Discrepancies in the timestamp of our data : Missing time periods. Every once in a while there is a major crash in cryptocurrencies market (i.e. prices dropping significantly). This leads to a massive amount of people trying to connect to the cryptocurrencies exchange platforms to try to sell (or buy) some cryptocurrencies.This often results in the exchange becoming unavailable, their server not being able to handle so many connections attempts at once. This explains the missing data in historical cryptocurrencies prices data (It can be for a couple of minutes up to a couple of hours). We therefore compute 'time\_diff\_in\_days' and 'time\_diff\_in\_min' to spot any such discrepancies in the timestamp.
     \item
-You can find the code in the get_uptodate_binance_data.py file
+You can find the code in the \code{get\_uptodate\_binance\_data.py} file
 
 \end{itemize}
 
@@ -223,7 +223,7 @@ Figure \ref{7day rolling volume} is about 7 days rolling average of the volume. 
 
 
 
-\section{key concepts}
+\section{Key concepts}
 
 The goal of this project is to proceed to the analysis of an optimal trading (buy-and-sell) strategy for the market of Cryptocurrencies. Our analysis will be made on cryptocurrency pairs.\\
 These pairs allow us to compare costs between different cryptocurrencies. They are helpful for illustrating the relative worth of coins. For example,the question how much Bitcoin (BTC) equals in Ethereum (ETH) will be answered by the value of the pair BTC/ETH.
@@ -231,12 +231,9 @@ In this report we are dealing with the BTC/USDT pair. USDT stands for Tether whi
 The price of a token depends on the market cap of the currency and how many tokens are issued. And since there are hundreds of cryptocurrencies dealing with their prices can become very cumbersome and lack clarity. For that very reason, we have chosen to deal in our analysis with log-returns.
 Indeed, the price of a currency is not what is of interest to us but rather it's evolution. By studying prices we would be confronted with values that don't have an intrinsic meaning, However with log returns we will have an idea of the evolution in percentages, which is way more useful. To sum it up, this allows measuring a lot of variables in a comparable metric, thus enabling evaluation of analytic relationships amongst two or more variables despite originating from price series of unequal values. \\
 Concretely, if we are doing our study on a currency at time $i$ which is valued at price $p_i$. The log-return for the period $t$ is:
-$$\log(\frac{p_i}{p_{i-t}})$$\\
+$$\log\left(\frac{p_i}{p_{i-t}}\right)$$\\
 
-Another important property is the additivity of the log-return. If our price at $t_1$ is $p_1$, it changes to $p_2$ at $t_2$ and move to $p_3$ at $t_3$. The log return from $t_1 $ to $t_2$ is $\log (p_2) - \log (p_1)$, the log return from $t_2 $ to $t_3$ is $\log (p_3) - \log (p_2)$. Therefore, it is clear that the log return from $t_1 $ to $t_3$ is $\log (p_3) - \log (p_1)$. This can be calculated easily. However, if we use simple return, the return should be $\frac{p_3}{p_1}$ instead of $\frac{p_3}{p_2} + \frac{p_2}{p_1}$. Hence, log-return is easier to apply in the real world.
-
-
-
+Another important property is the additivity of the log-return. If our price at $t_1$ is $p_1$, it changes to $p_2$ at $t_2$ and move to $p_3$ at $t_3$. The log return from $t_1 $ to $t_2$ is $\log (p_2) - \log (p_1)$, the log return from $t_2 $ to $t_3$ is $\log (p_3) - \log (p_2)$. Therefore, it is clear that the log return from $t_1 $ to $t_3$ is $\log (p_3) - \log (p_1)$. This can be calculated easily. However, if we use simple return, the return should be $p_3/p_1$ instead of $p_3/p_2 + p_2/p_1$. Hence, log-return is easier to apply to real data.
 
  An interesting observation one can make when plotting the log-returns is that they are supposed to be normally distributed, however when looking at Figure 1.1 we can see that the mean is slightly tilted to the positive side which indicates that BTC has been a good investment overall.
  
@@ -256,7 +253,7 @@ G(x; \eta, \tau, \xi) = \begin{cases}
 \end{cases}
 \]
 where $\eta, \tau$ and $\xi$ are location, shape and scale parameters respectively. \begin{remark}
-Extreme value theory does not apply singly to maxima, if $M_n' = \min(X_1, \ldots, X_n)$, then we have that $M_n' = -\max(-X_1, \ldots, -X_n)$ and so the corresponding limiting distribution function is $1-G(-x)$. 
+Extreme value theory does not apply singly to maxima, if $M_n' = \min(X_1, \ldots, X_n)$, then we have that $M_n' = -\max(-X_1, \ldots, -X_n)$, and so the corresponding limiting distribution function is $1-G(-x)$. 
 \end{remark}
 
 Studying maxima in this way is known as the \textbf{block maxima approach}, since one groups data and considers fitting the distribution to the maxima across all groups, for example: annual global extreme temperatures. There is another approach, called \textbf{peaks over thresholds}, which studies the exceedance of a random sample beyond a predefined threshold. This will be discussed later.
