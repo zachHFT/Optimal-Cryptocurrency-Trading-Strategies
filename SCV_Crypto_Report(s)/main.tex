@@ -178,7 +178,7 @@ We also select a subset of the columns of interest to us. In particular we keep 
     \item
 Note that we have never encountered any NA values or other seemingly out-of-place values that would need to be rejected. Indeed, so called 'out-of-place values' or any other outliers kind of value are strong indicators which require further investigations and may be relevant to dedicated algorithmic trading strategies. We absolutely do not want to remove them as we may be tempted to do in some other contexts in data science.
     \item
-Discrepencies in the timestamp of our data : Missing time periods. Every once in a while there is a major crash in cryptocurrencies market (i.e. prices dropping significantly). This leads to a massive amount of people trying to connect to the cryptocurrencies exchange platforms to try to sell (or buy) some cryptocurrencies.This often results in the exchange becoming unavailable, their server not being able to handle so many connections attempts at once. This explains the missing data in historical cryptocurrencies prices data (It can be for a couple of minutes up to a couple of hours). We therefore compute 'time_diff_in_days' and 'time_diff_in_min' to spot any such discrpencies in the timestamp.
+Discrepencies in the timestamp of our data : Missing time periods. Every once in a while there is a major crash in cryptocurrencies market (i.e. prices dropping significantly). This leads to a massive amount of people trying to connect to the cryptocurrencies exchange platforms to try to sell (or buy) some cryptocurrencies.This often results in the exchange becoming unavailable, their server not being able to handle so many connections attempts at once. This explains the missing data in historical cryptocurrencies prices data (It can be for a couple of minutes up to a couple of hours). We therefore compute 'time_diff_in_days' and 'time_diff_in_min' to spot any such discrepancies in the timestamp.
     \item
 You can find the code in the get_uptodate_binance_data.py file
 
@@ -190,7 +190,7 @@ You can find the code in the get_uptodate_binance_data.py file
 
 \begin{itemize}
     \item 
-Once an analysis is performed on a dedicated dataset (e.g. 1 hour BTC-USDT historical data), the same statistical analysis can be performed over any dataset (e.g. 1 minute ETH - CHF historical data), since the data structure (i.e. the columns, open, high, low, close) is the same. We will do so later on in the project.
+Once an analysis is performed on a dedicated dataset (e.g. 1 hour BTC/USDT historical data), the same statistical analysis can be performed over any dataset (e.g. 1 minute ETH/CHF historical data), since the data structure (i.e. the columns, open, high, low, close) is the same. We will do so later on in the project.
     \item
 We downloaded the data for hundreds of cryptocurrency pairs over various timeframe (1 day, 1 hour, 1 minute, etc) so that we can perform meta-analysis and/or repeat the small single-pair dataset analysis over all other sets
 
