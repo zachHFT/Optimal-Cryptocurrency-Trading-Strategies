@@ -143,8 +143,8 @@ bodyfont=\fontfamily{cmss}\selectfont\itshape,
 
 
 \chapter{Discovery and Assessment of optimal cryptocurrency trading strategies} 
-\section{Introduction}
-
+\section{Starter}
+\subsection{Introduction}
 \begin{itemize}
     \item 
 The goal of this project is to proceed to the analysis of an optimal trading (buy-and-sell) strategy for the market of Cryptocurrencies. We expect such a strategy, if sucessful, also applicable to the case of traditionnal stock markets. (note: Cryptocurrencies data are traditionnaly more easily and freely available than stock markets data, which are often pricey)
@@ -157,7 +157,7 @@ If you don't want to get your hands dirty (which is understandable) navigating t
 
 
 
-\section{Data Extraction}
+\subsection{Data Extraction}
 
 \begin{itemize}
 \item{To extract the data, you can do so as per the call of \begin{center}\code{getuptodate\_binance\_data.update\_data\_for\_basepair(base\_pair=\'USDT\', nb\_symbols\_limit=5, bin\_size=\'1d\')}\end{center} in \code{get\_ohlc\_historical\_data.ipynb}}.
@@ -168,7 +168,7 @@ If you don't want to get your hands dirty (which is understandable) navigating t
 \end{itemize}
 
 
-\section{Data Cleaning}
+\subsection{Data Cleaning}
 
 \begin{itemize}
     \item 
@@ -185,7 +185,7 @@ You can find the code in the \code{get\_uptodate\_binance\_data.py} file
 \end{itemize}
 
 
-\section{Multiple Datasets Analysis
+\subsection{Multiple Datasets Analysis
 }
 
 \begin{itemize}
@@ -197,7 +197,25 @@ We downloaded the data for hundreds of cryptocurrency pairs over various timefra
 \end{itemize}
 
 
-\section{Exploratory Data Analysis}
+
+\subsection{Data Enrichment: adding log-return}
+
+The goal of this project is to proceed to the analysis of an optimal trading (buy-and-sell) strategy for the market of Cryptocurrencies. Our analysis will be made on cryptocurrency pairs.\\
+These pairs allow us to compare costs between different cryptocurrencies. They are helpful for illustrating the relative worth of coins. For example,the question how much Bitcoin (BTC) equals in Ethereum (ETH) will be answered by the value of the pair BTC/ETH.
+In this report we are dealing with the BTC/USDT pair. USDT stands for Tether which is a stable coin in which each token is backed by a U.S Dollar.\\
+The price of a token depends on the market cap of the currency and how many tokens are issued. And since there are hundreds of cryptocurrencies dealing with their prices can become very cumbersome and lack clarity. For that very reason, we have chosen to deal in our analysis with log-returns.
+Indeed, the price of a currency is not what is of interest to us but rather it's evolution. By studying prices we would be confronted with values that don't have an intrinsic meaning, However with log returns we will have an idea of the evolution in percentages, which is way more useful. To sum it up, this allows measuring a lot of variables in a comparable metric, thus enabling evaluation of analytic relationships amongst two or more variables despite originating from price series of unequal values. \\
+Concretely, if we are doing our study on a currency at time $i$ which is valued at price $p_i$. The log-return for the period $t$ is:
+$$\log\left(\frac{p_i}{p_{i-t}}\right)$$\\
+
+Another important property is the additivity of the log-return. If our price at $t_1$ is $p_1$, it changes to $p_2$ at $t_2$ and move to $p_3$ at $t_3$. The log return from $t_1 $ to $t_2$ is $\log (p_2) - \log (p_1)$, the log return from $t_2 $ to $t_3$ is $\log (p_3) - \log (p_2)$. Therefore, it is clear that the log return from $t_1 $ to $t_3$ is $\log (p_3) - \log (p_1)$. This can be calculated easily. However, if we use simple return, the return should be $p_3/p_1$ instead of $p_3/p_2 + p_2/p_1$. Hence, log-return is easier to apply to real data.
+
+ An interesting observation one can make when plotting the log-returns is that they are supposed to be normally distributed, however when looking at Figure 1.1 we can see that the mean is slightly tilted to the positive side which indicates that BTC has been a good investment overall.
+ 
+ 
+ \section{Exploratory Data Analysis}
+ 
+ \subsection{subsection}
 In this section, we present some exploratory data analysis for our dataset.
 
 \begin{figure}[!htbp]
@@ -218,25 +236,13 @@ Figure \ref{log return box} shows the box plot of log-return of BTC. As can be s
 
 Figure \ref{7day rolling volume} is about 7 days rolling average of the volume. From this figure, we see that the volume oscillate during our examining period. The volume sometime change drastically for a certain day. However, with the existence of up and down signals, we see there is a trend of volume increasing from the beginning of 2017-07 to 2021-07.
 
+\subsection{Average daily returns based on the days, weeks, and months}
 
+\subsection{another one}
 
+\section{Social Networks and Sentiment Analysis}
 
-
-
-\section{Key concepts}
-
-The goal of this project is to proceed to the analysis of an optimal trading (buy-and-sell) strategy for the market of Cryptocurrencies. Our analysis will be made on cryptocurrency pairs.\\
-These pairs allow us to compare costs between different cryptocurrencies. They are helpful for illustrating the relative worth of coins. For example,the question how much Bitcoin (BTC) equals in Ethereum (ETH) will be answered by the value of the pair BTC/ETH.
-In this report we are dealing with the BTC/USDT pair. USDT stands for Tether which is a stable coin in which each token is backed by a U.S Dollar.\\
-The price of a token depends on the market cap of the currency and how many tokens are issued. And since there are hundreds of cryptocurrencies dealing with their prices can become very cumbersome and lack clarity. For that very reason, we have chosen to deal in our analysis with log-returns.
-Indeed, the price of a currency is not what is of interest to us but rather it's evolution. By studying prices we would be confronted with values that don't have an intrinsic meaning, However with log returns we will have an idea of the evolution in percentages, which is way more useful. To sum it up, this allows measuring a lot of variables in a comparable metric, thus enabling evaluation of analytic relationships amongst two or more variables despite originating from price series of unequal values. \\
-Concretely, if we are doing our study on a currency at time $i$ which is valued at price $p_i$. The log-return for the period $t$ is:
-$$\log\left(\frac{p_i}{p_{i-t}}\right)$$\\
-
-Another important property is the additivity of the log-return. If our price at $t_1$ is $p_1$, it changes to $p_2$ at $t_2$ and move to $p_3$ at $t_3$. The log return from $t_1 $ to $t_2$ is $\log (p_2) - \log (p_1)$, the log return from $t_2 $ to $t_3$ is $\log (p_3) - \log (p_2)$. Therefore, it is clear that the log return from $t_1 $ to $t_3$ is $\log (p_3) - \log (p_1)$. This can be calculated easily. However, if we use simple return, the return should be $p_3/p_1$ instead of $p_3/p_2 + p_2/p_1$. Hence, log-return is easier to apply to real data.
-
- An interesting observation one can make when plotting the log-returns is that they are supposed to be normally distributed, however when looking at Figure 1.1 we can see that the mean is slightly tilted to the positive side which indicates that BTC has been a good investment overall.
- 
+\section{Future Trending Cryptocurrency Detection }
 
 \section{Analysis of extremes}
 
