@@ -144,7 +144,7 @@ bodyfont=\fontfamily{cmss}\selectfont\itshape,
 
 \chapter{Discovery and Assessment of optimal cryptocurrency trading strategies} 
 \section{General Introduction}
-\subsection{Introduction}
+\subsection{Aim}
 \begin{itemize}
     \item 
 The goal of this project is to proceed to the analysis of an optimal trading (buy-and-sell) strategy for the market of Cryptocurrencies. We expect such a strategy, if sucessful, also applicable to the case of traditionnal stock markets. (note: Cryptocurrencies data are traditionnaly more easily and freely available than stock markets data, which are often pricey)
@@ -213,9 +213,9 @@ Another important property is the additivity of the log-return. If our price at 
  An interesting observation one can make when plotting the log-returns is that they are supposed to be normally distributed, however when looking at Figure 1.1 we can see that the mean is slightly tilted to the positive side which indicates that BTC has been a good investment overall.
  
  
- \section{Exploratory Data Analysis}
- 
- \subsection{subsection}
+ \section{Example analyses}
+
+\subsection{Distribution of prices and returns}
 In this section, we present some exploratory data analysis for our dataset.
 
 \begin{figure}[!htbp]
@@ -236,15 +236,9 @@ Figure \ref{log return box} shows the box plot of log-return of BTC. As can be s
 
 Figure \ref{7day rolling volume} is about 7 days rolling average of the volume. From this figure, we see that the volume oscillate during our examining period. The volume sometime change drastically for a certain day. However, with the existence of up and down signals, we see there is a trend of volume increasing from the beginning of 2017-07 to 2021-07.
 
-\subsection{Average daily returns based on the days, weeks, and months}
 
-\subsection{another one}
 
-\section{Social Networks and Sentiment Analysis}
-
-\section{Future Trending Cryptocurrency Detection }
-
-\section{Analysis of extremes}
+\subsection{Analysis of extremes}
 
 In financially related fields, the question of extreme values is indubitably an important one. For example: stock market crashes, interest rates  insurance pricing based on life expectancy are all fields in which it would be necessary to consider the very unlikely, atypical events. The analysis of cryptocurrency trajectories is no different, indeed, it would certainly be of interest to a trader to be aware at what rate the cryptocurrency market experiences sudden but large deviations from its present state. Recently, in fact, in March of $2020$, Bitcoin crashed. In the midst of the COVID-19 outbreak, the price of Bitcoin fell dramatically, see Figure \ref{fig:logreturn_17_21} for a visualisation.
 
@@ -265,7 +259,7 @@ Extreme value theory does not apply singly to maxima, if $M_n' = \min(X_1, \ldot
 Studying maxima in this way is known as the \textbf{block maxima approach}, since one groups data and considers fitting the distribution to the maxima across all groups, for example: annual global extreme temperatures. There is another approach, called \textbf{peaks over thresholds}, which studies the exceedance of a random sample beyond a predefined threshold. This will be discussed later.
 
 
-The goal now, therefore, is to fit this model to our data, i.e. by finding the unknown parameters. To this end, we use the $\code{R}$ package $\code{evd}$ which gives useful functions for extremal modelling and makes plotting diagnostics straightforward. The function $\code{fgev}$ fits the block maxima (or minima when appropriately transformed) to the model through maximum likelihood estimation. Assuming certain regularity conditions, we can derive estimates and corresponding uncertainties from our method.  
+The goal now, therefore, is to fit this model to our data, i.e. by finding the unknown parameters. To this end, we use the $\code{R}$ package $\code{evd}$ which gives useful functions for extremal modelling and makes plotting diagnostics straightforward. 
 \begin{figure}
     \centering
     \includegraphics[width=\linewidth, height=3.5in]{TestPlots/Histogram log-returns2.png}
@@ -281,7 +275,14 @@ The goal now, therefore, is to fit this model to our data, i.e. by finding the u
 \end{figure}
 
 
-
+\subsection{Next steps}
+Beyond this point, the aim is to focus our analyses into three main blocks:
+\begin{itemize}
+    \item Social Networks and Sentiment Analysis;
+    \item Future Trending Cryptocurrency Detection;
+    \item Extreme fluctuations in prices.
+\end{itemize}
+The first two will involve in large part the use of data scraped from the internet, used to try and predict changes in pricing through some statistical modelling approaches such as logistic regression, or through the use of some machine learning. The final section will apply the statistics of extremes to financial data -- modern extreme value theory is commonly applied to traditional financial quantities; cryptocurrency being a very young field, might present some quite different patterns to those in the stock market (say), one reason for this is the vastly different levels of regulation among buyers and sellers.
 
 
 
